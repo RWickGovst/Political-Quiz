@@ -1,5 +1,15 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS political_quiz_db;
+CREATE DATABASE political_quiz_db;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+USE political_quiz_db;
+
+CREATE TABLE political_quiz (
+  
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+ 
+ complete BOOLEAN DEFAULT false,
+
+ result VARCHAR(30) NOT NULL,
+
+PRIMARY KEY (id)
+);
