@@ -42,6 +42,7 @@ SELECT * FROM user_results;
 CREATE TABLE questions (
 id INTEGER(11) AUTO_INCREMENT NOT NULL,
 question VARCHAR(200),
+category VARCHAR(20),
 ans1 VARCHAR(10),
 ans2 VARCHAR(10),
 ans3 VARCHAR(10),
