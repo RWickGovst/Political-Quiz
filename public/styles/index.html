@@ -38,7 +38,7 @@
             <p class= "center">Based on your answers, you will receive a breakdown of how you align with the Constitution Party, Democratic Party, Green Party, Libertarian Party, and Republican Party.</p>
         </div>
             <div class= "center">
-            <a href="quiz.html" class="waves-effect red waves-light btn-large">Find Your Party</a>
+            <a class="waves-effect red waves-light btn-large" id="startQuiz">Find Your Party</a>
             </div>    
             <br><br>
      
@@ -52,6 +52,13 @@
 <script>
   $(document).ready(function(){
     $('.parallax').parallax();
+
+    $("#startQuiz").on("click", function() {
+        //check for cookie
+        //if no cookie send em to /api/new
+        //else have cookie
+            // /get route userID
+    })
   });
 </script>
 
