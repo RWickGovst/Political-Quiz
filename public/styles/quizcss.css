@@ -1,0 +1,12 @@
+body {
+        background-image: url("./bkg-sky.jpg");
+      }
+#quizarea{
+    padding: 3% 5%;
+    margin: 5% 5%;
+    background-color: white
+}
+
+#navbar{
+    font-family: 'DM Serif Text', serif;
+}
