@@ -2,15 +2,14 @@ var db = require("../models");
 
 module.exports = function (app) {
   app.post('/api/newUser', (req, res) => {
+    //do a post to database db.user_results.(create?)
     //get id from the post
-    //create cookie with that id
-    //redirect to /user/:userId/quiz/1
-  })
+    // res.json({ id: result.insertId });
+    //var id = res.id
+    //redirect to `/user/${id}/quiz/1`
+    // '/users/' + id + '/quiz/1'
 
-  // Load index page
-  app.get('/user/:userId')
-  //find first question with answer null
-  //redirect to /get/user/:userId/quiz/:questionId
+  })
 
   app.get("/user/:userId/quiz/:questionId", function (req, res) {
     //is cookie userId = req.params.userId?
@@ -26,12 +25,7 @@ module.exports = function (app) {
     //if no
     //res.redirect('/')
     //}})
-    db.Example.findAll({}).then(function (dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+ 
   });
   // .put(`/user/${userId}/quiz/${req.params.questionId})
   //update the answer to question id in user table
