@@ -15,7 +15,6 @@ module.exports = function(app) {
   //   res.sendFile(path.join(__dirname, "../public/styles/quiz.html"));
   // });
 
-  // blog route loads blog.html
    app.get("/about.html", function(req, res) {
      res.sendFile(path.join(__dirname, "../public/styles/about.html"));
    });
