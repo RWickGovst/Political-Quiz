@@ -23,7 +23,7 @@ module.exports = function(app) {
     res.render("quiz");
   });
 
- }
+
 
 
   // // authors route loads author-manager.html
