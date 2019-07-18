@@ -20,6 +20,12 @@ module.exports = function(app) {
      res.sendFile(path.join(__dirname, "../public/styles/about.html"));
    });
 
+   app.get("/quiz", function (req, res){
+     res.render("quiz");
+   });
+
+  }
+
   // // authors route loads author-manager.html
   // app.get("/authors", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/author-manager.html"));
@@ -30,7 +36,7 @@ module.exports = function(app) {
    //   res.render("404");
    // });
 
-};
+
 
 // module.exports = function (app) {
   // app.post('/api/newUser', (req, res) => {
