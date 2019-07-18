@@ -1,5 +1,5 @@
 INSERT INTO questions
-    ( question, category, ans1, ans2, ans3, ans4, ans5)
+    ( question, category, r, c, g, l, d)
 VALUES
     ("The unborn child has a fundamental individual right to life which cannot be infringed", Social
 Issues,5,4,2,3,1),
