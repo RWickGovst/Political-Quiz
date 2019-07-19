@@ -27,15 +27,9 @@
  <div id="quizArea">
 
  </div> 
-  <nav>
-    <div class="nav-wrapper red">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="grid">
+
+  <div class="renderQuestions"></div>
+  {{!-- <div class="grid">
     
     <h2 id="category"></h2>
     
@@ -47,8 +41,8 @@
         <a class="waves-effect waves-light btn" id="choice4">Four</a>
         <a class="waves-effect waves-light btn" id="choice5">Five</a>
       </div>
-  </div>
-  
+  </div> --}}
+  <button type="submit">Submit</button>
 </body>
 
 <script type="text/javascript">
@@ -56,6 +50,7 @@
   // In this code, jQuery is used to "download" the data from our server
   // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
   // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
+
 
   function loadQuestions() {
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
@@ -66,40 +61,52 @@
         console.log(dbExamples);
         console.log("------------------------------------");
 
-        var categories = $("#category");
+        {{!-- var categories = $("#category");
         var questions = $("#quizArea");
-        var buttons = $(".buttons");
+        var buttons = $(".buttons"); --}}
+
 
         // Loop through and display each of the questions
         for (var i = 0; i < dbExamples.length; i++) {
           
-          {{!-- var cat = $("<li class='list-group-item mt-4'>"); --}}
-          var ques = $("<li class='list-group-item mt-4'>");
-          {{!-- var but = $("mt-3"); --}}
-
-           {{!-- cat.append(
-
-            $("<h2>").text(dbExamples[i].category)
-          ); --}}
-          
-          ques.append(
-            $("<h2>").text(dbExamples[i].category),
-            $("<h2>").text(dbExamples[i].id + ". "),
-            $("<h2>").text(dbExamples[i].question)
-          );
-
-          {{!-- but.append(
-            $(""),
-            $("<hr>")
-          ) --}}
-          {{!-- categories.append(cat); --}}
-          
-          questions.append(ques);
-
-          {{!-- buttons.append(but); --}}
+          $(".renderQuestions").append(
+            $("<h2>").text("Question Number " + [i + 1] + " Category: "+ dbExamples[i].category),
+            $("<h2>").text(dbExamples[i].question),
+            $("<form>").append(
+              $("<p>").append(
+                $("<label>").append(
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].rep).text("1"),
+                  )
+                ),
+              $("<p>").append(
+                $("<label>").append(
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].const).text("2"),
+                  )
+                ),
+                $("<p>").append(
+                $("<label>").append(
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].green).text("3"),
+                  )
+                ),
+              $("<p>").append(
+                $("<label>").append(
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].lib).text("4"),
+                  )
+                ),
+                $("<p>").append(
+                $("<label>").append(
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].dem).text("5"),
+                  )
+                ),
+              ),
+          )
+           {{!-- console.log(dbExamples[i].category) --}}
         }
       });
+
+        
   }
+
 
 
   // Run Queries!
