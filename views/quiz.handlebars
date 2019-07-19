@@ -27,6 +27,34 @@
  <div id="quizArea">
 
  </div> 
+ 
+  <div class="center">
+      <!-- Modal Trigger -->
+      <a class="waves-effect waves-light red btn view" id="modalButton">Submit Answers</a>
+    </div>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Your results</h4>
+      <p>RESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTS</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Back to Quiz</a>
+    </div>
+  </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+ $("#modalButton").on("click", function(){
+    $('#modal1').modal();
+    $('#modal1').modal('open'); 
+ });
+</script>
 
   <div class="renderQuestions"></div>
   {{!-- <div class="grid">
@@ -42,7 +70,33 @@
         <a class="waves-effect waves-light btn" id="choice5">Five</a>
       </div>
   </div> --}}
-  <button type="submit">Submit</button>
+  <div class="center">
+      <!-- Modal Trigger -->
+      <a class="waves-effect waves-light red btn view" id="modalButton">Submit Answers</a>
+    </div>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Your results</h4>
+      <p>RESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTS</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Back to Quiz</a>
+    </div>
+  </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+ $("#modalButton").on("click", function(){
+    $('#modal1').modal();
+    $('#modal1').modal('open'); 
+ });
+</script>
 </body>
 
 <script type="text/javascript">
