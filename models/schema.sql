@@ -43,12 +43,7 @@ SELECT * FROM user_results;
 -- id INTEGER(11) AUTO_INCREMENT NOT NULL,
 -- question VARCHAR(200),
 -- category VARCHAR(20),
--- rep VARCHAR(10),
--- const VARCHAR(10),
--- green VARCHAR(10),
--- lib VARCHAR(10),
--- dem VARCHAR(10),
 -- PRIMARY KEY (id)
 -- );
 
--- SELECT * FROM questions
+SELECT * FROM questions
