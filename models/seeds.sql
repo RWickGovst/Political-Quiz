@@ -1,8 +1,7 @@
 INSERT INTO questions
     ( question, category, rep, const, green, lib, dem)
 VALUES
-    ("The unborn child has a fundamental individual right to life which cannot be infringed", "Social
-Issues",5,4,2,3,1),
+("The unborn child has a fundamental individual right to life which cannot be infringed", "Social Issues",5,4,2,3,1),
 ("Same sex marriage should not be accepted by society","Social Issues",4,5,1,3,2),
 ("Abortion is a woman’s unrestricted right","Social Issues",1,2,5,3,4),
 ("Education is best provided by the free market, achieving greater quality, accountability and efficiency with more diversity of School Choice","Social Issues",4,3,2,5,1),
