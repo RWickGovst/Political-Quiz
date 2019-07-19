@@ -1,12 +1,12 @@
 require("dotenv").config();
 var express = require("express");
 var app = express();
-var PORT =  3000;
+var PORT =  process.env.PORT || 3000;
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
 
-process.env.PORT ||
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
