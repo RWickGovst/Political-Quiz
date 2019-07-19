@@ -20,11 +20,10 @@ module.exports = function(app) {
    });
 
    app.get("/quiz", function (req, res){
-    res.render("quiz");
-  });
+     res.render("quiz");
+   });
 
-
-
+  }
 
   // // authors route loads author-manager.html
   // app.get("/authors", function(req, res) {
@@ -36,7 +35,7 @@ module.exports = function(app) {
    //   res.render("404");
    // });
 
-};
+
 
 // module.exports = function (app) {
   // app.post('/api/newUser', (req, res) => {
