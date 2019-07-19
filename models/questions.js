@@ -7,7 +7,8 @@ module.exports = function (sequelize, DataTypes) {
         green: DataTypes.INTEGER,
         lib: DataTypes.INTEGER,
         dem: DataTypes.INTEGER,
-
+    },{
+        timestamps: false
     });
     return Questions;
 };
