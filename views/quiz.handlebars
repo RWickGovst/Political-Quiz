@@ -29,19 +29,7 @@
  </div> 
 
   <div class="renderQuestions"></div>
-  {{!-- <div class="grid">
-    
-    <h2 id="category"></h2>
-    
-    <p id="quizArea"></p>
-      <div class="buttons">
-        <a class="waves-effect waves-light btn" id="choice1">One</a>
-        <a class="waves-effect waves-light btn" id="choice2">Two</a>
-        <a class="waves-effect waves-light btn" id="choice3">Three</a>
-        <a class="waves-effect waves-light btn" id="choice4">Four</a>
-        <a class="waves-effect waves-light btn" id="choice5">Five</a>
-      </div>
-  </div> --}}
+  
   <button type="submit">Submit</button>
 </body>
 
@@ -50,7 +38,7 @@
   // In this code, jQuery is used to "download" the data from our server
   // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
   // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
-
+loadQuestions();
 
   function loadQuestions() {
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
@@ -70,32 +58,32 @@
         for (var i = 0; i < dbExamples.length; i++) {
           
           $(".renderQuestions").append(
-            $("<h2>").text("Question Number " + [i + 1] + " Category: "+ dbExamples[i].category),
-            $("<h2>").text(dbExamples[i].question),
-            $("<form>").append(
+            $("<h2>").text(" Category: "+ dbExamples[i].category),
+            $("<h2>").text([i+1] + ". " + dbExamples[i].question),
+            $("<form>").attr("name", "userAnswer").append(
               $("<p>").append(
                 $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].rep).text("1"),
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].rep).text("Strongly Disagree"),
                   )
                 ),
               $("<p>").append(
                 $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].const).text("2"),
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].const).text("Disagree"),
                   )
                 ),
                 $("<p>").append(
                 $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].green).text("3"),
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].green).text("Neutral"),
                   )
                 ),
               $("<p>").append(
                 $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].lib).text("4"),
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].lib).text("Agree"),
                   )
                 ),
                 $("<p>").append(
                 $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].dem).text("5"),
+                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].dem).text("Strongly Agree"),
                   )
                 ),
               ),
@@ -107,11 +95,26 @@
         
   }
 
+{{!-- on click button --}}
+{{!-- $("submit").click(function(){
+  var rep = 0;
+  var const = 0;
+  var green = 0;
+  var lib = 0;
+  var dem = 0; --}}
+
+{{!-- if the button is checked, + rep --}}
+
+
+
+{{!-- } --}}
+{{!-- ) --}}
+
 
 
   // Run Queries!
   // ==========================================
-  loadQuestions();
+  
 
 
 
