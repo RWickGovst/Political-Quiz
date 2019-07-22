@@ -23,15 +23,12 @@
 </head>
 
 <body id="quiz">
-  {{!-- <nav> --}}
-    {{!-- <div class="nav-wrapper red"> --}}
-      {{!-- <ul id="nav-mobile" class="right hide-on-med-and-down"> --}}
+  
        <nav class="navbar navbar-light bg-light">
         
         <a href="/">Home</a></li>
         <a href="about.html">About</a></li>
-      {{!-- </ul> --}}
-    {{!-- </div> --}}
+     
   </nav>
   <div id="quizArea">
 
@@ -40,34 +37,17 @@
   <div class="renderQuestions"></div>
 
   </div>
-  <!-- Modal Structure -->
-  {{!-- <div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Results</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Results</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div> --}}
-<div class="center" id="submitBtn">
+  
+{{!-- <div class="center" id="submitBtn">
     <a href="/results" class="waves-effect red waves-light btn-large">Submit</a>
-  </div>
+  </div> --}}
 
-  {{!-- <button id="submitBtn">Submit</button> --}}
+  <button id="submitBtn">Submit</button>
 
 
   <script type="text/javascript">
+
+    $(document).ready(function () {
 
     var lScore = 0;
     var dScore = 0;
@@ -75,9 +55,7 @@
     var cScore = 0;
     var rScore = 0;
 
-    $(document).ready(function () {
-
-      {{!-- $("#submitBtn").on("click", function () {
+      $("#submitBtn").on("click", function () {
         console.log("clicked");
         rScore = parseInt($("input[name='q1']:checked").val()) + parseInt($("input[name='q6']:checked").val()) + parseInt($("input[name='q11']:checked").val()) + parseInt($("input[name='q16']:checked").val());
         cScore = parseInt($("input[name='q2']:checked").val()) + parseInt($("input[name='q7']:checked").val()) + parseInt($("input[name='q12']:checked").val()) + parseInt($("input[name='q17']:checked").val());
@@ -94,8 +72,8 @@
         var scores = [rScore, cScore, gScore, lScore, dScore];
         scores.sort(function (a, b) { return b - a });
         console.log(scores);
-        return scores;
-      }); --}}
+       
+      });
 
       // In this code, jQuery is used to "download" the data from our server
       // We then dynamically display this content in our table. This is very similar to the group projects you just completed.

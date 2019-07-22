@@ -23,33 +23,25 @@
 </head>
 
 <body id="results">
-    {{!-- <nav>
-    <div class="nav-wrapper red">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </div>
-  </nav> --}}
+    
     <nav class="navbar navbar-light bg-light">
 
         <a href="/">Home</a></li>
         <a href="about.html">About</a></li>
-        {{!-- </ul> --}}
-        {{!-- </div> --}}
+        
     </nav>
 
     <div id="resultsArea"></div>
 
     <script type="text/javascript">
 
+    $(document).ready(function () {
+
         var lScore = 0;
         var dScore = 0;
         var gScore = 0;
         var cScore = 0;
         var rScore = 0;
-
-        $(document).ready(function () {
 
             $("#submitBtn").on("click", function () {
                 console.log("clicked");
