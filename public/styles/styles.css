@@ -1,14 +1,19 @@
 .parallax-container1{
     height: 150px;
 }
-
+#resultsArea{
+    font-size: 18px;
+}
 
 #bannertext{
     font-size: 130px;
     font-family: 'DM Serif Text', serif;
 
 }
-
+.navbar {
+    float: right;
+    padding: 15px;
+}
 .fadeInUp {
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;
