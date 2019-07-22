@@ -1,3 +1,5 @@
+var express = require("express");
+var app = express();
 var path = require("path");
 var db = require("../models");
 
@@ -22,6 +24,10 @@ module.exports = function(app) {
    app.get("/quiz", function (req, res){
      res.render("quiz");
    });
+
+   app.get("/results", function (req, res){
+    res.render("results");
+  });
 
   }
 

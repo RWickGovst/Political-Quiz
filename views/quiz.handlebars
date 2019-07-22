@@ -6,135 +6,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quiz</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
   <!-- Compiled and minified Materialize CSS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text&display=swap" rel="stylesheet">
-  <!-- Compiled and minified Materialize JavaScript -->
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Font Awesome Glyphicons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  <!-- Chosen -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
 </head>
 
 <body id="quiz">
-        <nav>
-                <div class="nav-wrapper red">
-                  <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                  </ul>
-                </div>
-              </nav>
- <div id="quizArea">
+  
+       <nav class="navbar navbar-light bg-light">
+        
+        <a href="/">Home</a></li>
+        <a href="about.html">About</a></li>
+     
+  </nav>
+  <div id="quizArea">
 
- </div> 
+  </div>
 
   <div class="renderQuestions"></div>
+
+  </div>
   
-  <div class="center">
-	      <!-- Modal Trigger -->
-	      <a class="waves-effect waves-light red btn view" id="modalButton">Submit Answers</a>
-	    </div>
-	  </div>
-	  <!-- Modal Structure -->
-	  <div id="modal1" class="modal">
-	    <div class="modal-content">
-	      <h4>Your results</h4>
-	      <p>RESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTSRESULTS</p>
-	    </div>
-	    <div class="modal-footer">
-	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Back to Quiz</a>
-	    </div>
-	  </div>
-	</body>
-	
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	
-	<script type="text/javascript">
-	 $("#modalButton").on("click", function(){
-	    $('#modal1').modal();
-	    $('#modal1').modal('open'); 
-	 });
+{{!-- <div class="center" id="submitBtn">
+    <a href="/results" class="waves-effect red waves-light btn-large">Submit</a>
+  </div> --}}
 
-  // In this code, jQuery is used to "download" the data from our server
-  // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
-  // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
-loadQuestions();
+  <button id="submitBtn">Submit</button>
 
-  function loadQuestions() {
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/quiz", method: "GET" })
-      .then(function (dbExamples) {
 
-        // Here we then log the tableData to console, where it will show up as an object.
-        console.log(dbExamples);
-        console.log("------------------------------------");
+  <script type="text/javascript">
 
-        // Loop through and display each of the questions
-        for (var i = 0; i < dbExamples.length; i++) {
-          
-          $(".renderQuestions").append(
-            $("<h2>").text(" Category: "+ dbExamples[i].category),
-            $("<h2>").text([i+1] + ". " + dbExamples[i].question),
-            $("<form>").attr("name", "userAnswer").append(
-              $("<p>").append(
-                $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].rep).text("Strongly Disagree"),
-                  )
-                ),
-              $("<p>").append(
-                $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].const).text("Disagree"),
-                  )
-                ),
-                $("<p>").append(
-                $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].green).text("Neutral"),
-                  )
-                ),
-              $("<p>").append(
-                $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].lib).text("Agree"),
-                  )
-                ),
-                $("<p>").append(
-                $("<label>").append(
-                    $("<input>").attr("type", "radio").attr("party", dbExamples[i].dem).text("Strongly Agree"),
-                  )
-                ),
-              ),
-          )
-           {{!-- console.log(dbExamples[i].category) --}}
-        }
+    $(document).ready(function () {
+
+    var lScore = 0;
+    var dScore = 0;
+    var gScore = 0;
+    var cScore = 0;
+    var rScore = 0;
+
+      $("#submitBtn").on("click", function () {
+        console.log("clicked");
+        rScore = parseInt($("input[name='q1']:checked").val()) + parseInt($("input[name='q6']:checked").val()) + parseInt($("input[name='q11']:checked").val()) + parseInt($("input[name='q16']:checked").val());
+        cScore = parseInt($("input[name='q2']:checked").val()) + parseInt($("input[name='q7']:checked").val()) + parseInt($("input[name='q12']:checked").val()) + parseInt($("input[name='q17']:checked").val());
+        gScore = parseInt($("input[name='q3']:checked").val()) + parseInt($("input[name='q8']:checked").val()) + parseInt($("input[name='q13']:checked").val()) + parseInt($("input[name='q18']:checked").val());
+        lScore = parseInt($("input[name='q4']:checked").val()) + parseInt($("input[name='q9']:checked").val()) + parseInt($("input[name='q14']:checked").val()) + parseInt($("input[name='q19']:checked").val());
+        dScore = parseInt($("input[name='q5']:checked").val()) + parseInt($("input[name='q10']:checked").val()) + parseInt($("input[name='q15']:checked").val()) + parseInt($("input[name='q20']:checked").val());
+
+        console.log("Republican " + rScore);
+        console.log("Constitution " + cScore);
+        console.log("Green " + gScore);
+        console.log("Libertarian " + lScore);
+        console.log("Democrat " + dScore);
+
+        var scores = [rScore, cScore, gScore, lScore, dScore];
+        scores.sort(function (a, b) { return b - a });
+        console.log(scores);
+       
       });
 
-        
-  }
+      // In this code, jQuery is used to "download" the data from our server
+      // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
+      // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
+      loadQuestions();
 
-{{!-- on click button --}}
-{{!-- $("submit").click(function(){
-  var rep = 0;
-  var const = 0;
-  var green = 0;
-  var lib = 0;
-  var dem = 0; --}}
+      function loadQuestions() {
+        // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+        $.ajax({ url: "/api/quiz", method: "GET" })
+          .then(function (dbExamples) {
 
-{{!-- if the button is checked, + rep --}}
+            // Here we then log the tableData to console, where it will show up as an object.
+            console.log(dbExamples);
+            console.log("------------------------------------");
 
+            // Loop through and display each of the questions
+            for (var i = 0; i < dbExamples.length; i++) {
 
+              $(".renderQuestions").append(
+                $("<h2>").text(" Category: " + dbExamples[i].category),
+                $("<h2>").text([i + 1] + ". " + dbExamples[i].question),
+                $("<form>").append(
+                  $("<p>").text("Strongly Disagree").append(
+                    $("<input>").attr("type", "radio").attr("value", 1).attr("name", "q" + [i + 1]),
 
-{{!-- } --}}
-{{!-- ) --}}
+                  ),
+                  $("<p>").text("Disagree").append(
+                    $("<input>").attr("type", "radio").attr("value", 2).attr("name", "q" + [i + 1]),
 
+                  ),
+                  $("<p>").text("Neutral").append(
+                    $("<input>").attr("type", "radio").attr("value", 3).attr("name", "q" + [i + 1]),
 
+                  ),
+                  $("<p>").text("Agree").append(
+                    $("<input>").attr("type", "radio").attr("value", 4).attr("name", "q" + [i + 1]),
 
-  // Run Queries!
-  // ==========================================
-  
+                  ),
+                  $("<p>").text("Strongly Agree").append(
+                    $("<input>").attr("type", "radio").attr("value", 5).attr("name", "q" + [i + 1]),
 
-
-
-</script>
+                  ),
+                ),
+              )
+            }
+          });
+      }
+    })
+    
+  </script>
+</body>
 
 </html>
